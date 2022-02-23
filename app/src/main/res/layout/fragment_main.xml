@@ -7,61 +7,28 @@
     tools:context=".ui.main.MainFragment">
 
     <TextView
-        android:id="@+id/tv_main_pokemon_name"
+        android:id="@+id/tv_main_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:padding="20dp"
-        tools:text="NAME"
+        android:text="MAIN PAGE"
         />
 
-    <TextView
-        android:id="@+id/tv_main_pokemon_number"
+    <Button
+        android:id="@+id/btn_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_main_pokemon_name"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_title"
         app:layout_constraintEnd_toEndOf="parent"
-        android:padding="10dp"
-        tools:text="NUMBER"
-
-        />
-
-    <TextView
-        android:id="@+id/tv_main_pokemon_height"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_main_pokemon_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="10dp"
-        tools:text="HEIGHT"
-
-        />
-
-    <TextView
-        android:id="@+id/tv_main_pokemon_weight"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_main_pokemon_height"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="10dp"
-        tools:text="WEIGHT"
-
-        />
-
-    <ImageView
-        android:id="@+id/iv_main_pokemon_image"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_main_pokemon_weight"
-        tools:src="@drawable/ic_launcher_background" />
+        android:text="BUTTON"
+        />
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
