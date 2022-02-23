@@ -10,6 +10,6 @@ data class PokemonModel(
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "height") val height: String,
     @ColumnInfo(name = "weight") val weight: String,
-    @ColumnInfo(name = "other") val other: ArtWorkModel
+    @ColumnInfo(name = "other") val sprites: SpritesModel
 
     )

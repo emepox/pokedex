@@ -37,15 +37,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 tvMainPokemonHeight.text = pokemon.height
                 tvMainPokemonWeight.text = pokemon.weight
                 // Image
-                /*
+
                 Glide.with(requireContext())
-                    .load(pokemon.other.officialArtwork.front_default)
+                    .load(pokemon.sprites.other.officialArtwork.front_default)
                     .dontAnimate()
                     .into(ivMainPokemonImage)
-
-                 */
             }
         }
     }
-
 }
