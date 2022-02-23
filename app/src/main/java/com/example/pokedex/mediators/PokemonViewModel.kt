@@ -11,14 +11,15 @@ import kotlinx.coroutines.launch
 class PokemonViewModel : ViewModel() {
 
     private val apiRepo = ApiRequestRepository()
-    private lateinit var response : MutableLiveData<PokemonModel>
+    val response = MutableLiveData<PokemonModel>()
+
 
     // HTTP CALLS
 
     // By name
     fun getPokemonByName(name: String): MutableLiveData<PokemonModel> {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = apiRepo.getDataByName(name)
+            val result = apiRepo.getDataByName(name)!!
             response.postValue(result)
         }
         return response
@@ -27,7 +28,7 @@ class PokemonViewModel : ViewModel() {
     // By ID
     fun getPokemonById(id: Int): MutableLiveData<PokemonModel> {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = apiRepo.getDataById(id)
+            val result = apiRepo.getDataById(id)!!
             response.postValue(result)
         }
         return response
