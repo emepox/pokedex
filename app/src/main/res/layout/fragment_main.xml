@@ -4,30 +4,69 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.main.MainFragment">
+    tools:context=".ui.main.MainFragment"
+    >
 
     <TextView
-        android:id="@+id/tv_main_title"
+        android:id="@+id/tv_main_pokemon_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/ll_main_data"
         android:padding="20dp"
-        android:text="MAIN PAGE"
+        android:textSize="25sp"
+        tools:text="NAME"
         />
 
-    <Button
-        android:id="@+id/btn_main"
+    <LinearLayout
+        android:id="@+id/ll_main_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_main_title"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/iv_main_pokemon_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:text="BUTTON"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_main_pokemon_name">
 
+        <TextView
+            android:id="@+id/tv_main_pokemon_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            tools:text="NUMBER" />
+
+        <TextView
+            android:id="@+id/tv_main_pokemon_height"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            tools:text="HEIGHT"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_main_pokemon_weight"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            tools:text="WEIGHT" />
+
+
+    </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/iv_main_pokemon_image"
+        android:layout_width="wrap_content"
+        android:layout_height="430dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        android:src="@drawable/loading_buffer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 
