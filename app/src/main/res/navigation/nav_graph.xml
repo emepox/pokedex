@@ -4,23 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
     app:startDestination="@id/mainFragment">
-
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.example.pokedex.ui.main.MainFragment"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
-            android:id="@+id/action_mainFragment_to_showFragment"
-            app:destination="@id/showFragment" />
+            android:id="@+id/action_mainFragment_to_searchFragment2"
+            app:destination="@id/searchFragment2" />
     </fragment>
     <fragment
-        android:id="@+id/showFragment"
-        android:name="com.example.pokedex.ui.show.ShowFragment"
-        android:label="fragment_show"
-        tools:layout="@layout/fragment_show" >
+        android:id="@+id/searchFragment2"
+        android:name="com.example.pokedex.ui.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_showFragment_to_mainFragment"
+            android:id="@+id/action_searchFragment2_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
 </navigation>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_search_name"
+        android:icon="@drawable/ic_search"
+        android:title="Search by name" />
+
+    <item
+        android:id="@+id/navigation_random"
+        android:icon="@drawable/ic_random"
+        android:title="Random" />
+
+    <item
+        android:id="@+id/navigation_search_id"
+        android:icon="@drawable/ic_search"
+        android:title="Search by ID" />
+
+</menu>
