@@ -2,18 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_search_name"
+        android:id="@+id/searchFragment"
         android:icon="@drawable/ic_search"
-        android:title="Search by name" />
+        android:title="Search" />
 
     <item
-        android:id="@+id/navigation_random"
+        android:id="@+id/mainFragment"
         android:icon="@drawable/ic_random"
         android:title="Random" />
 
     <item
-        android:id="@+id/navigation_search_id"
-        android:icon="@drawable/ic_search"
-        android:title="Search by ID" />
+        android:id="@+id/favouritesFragment"
+        android:icon="@drawable/ic_heart_empty"
+        android:title="Favs" />
 
 </menu>

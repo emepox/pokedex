@@ -31,6 +31,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         pokemonObserver()
 
     }
+
     private fun pokemonObserver() {
         pokemonViewModel.response.observe(viewLifecycleOwner) { pokemon ->
             if(pokemon == null) {
@@ -50,4 +51,5 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             }
         }
     }
+
 }
