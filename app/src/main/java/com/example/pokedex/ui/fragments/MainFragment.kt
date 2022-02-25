@@ -5,13 +5,13 @@ import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.pokedex.R
-import com.example.pokedex.data.models.PokemonModel
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import com.example.pokedex.databinding.FragmentMainBinding
 import com.example.pokedex.mediators.FavouritesViewModel
 import com.example.pokedex.mediators.PokemonViewModel
-import java.util.*
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -30,9 +30,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Initialise the call to the Pokemon API
         // Check if there are arguments passed from search
         if(arguments == null) {
-            pokemonViewModel.getPokemonById((1..898).random())
+            pokemonViewModel.getPokemon((1..898).random().toString())
         } else {
-            arguments?.getString("search")?.let { pokemonViewModel.getPokemonByName(it) }
+            arguments?.getString("search")?.let { pokemonViewModel.getPokemon(it) }
             arguments = null
         }
 
@@ -61,7 +61,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private fun pokemonObserver() {
         pokemonViewModel.response.observe(viewLifecycleOwner) { pokemon ->
             if(pokemon == null) {
-                Toast.makeText(requireContext(), "THIS REQUEST WAS NULL", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "Please add a new Pokémon", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.errorFragment)
                 return@observe
             }
             currentPokemon = pokemon

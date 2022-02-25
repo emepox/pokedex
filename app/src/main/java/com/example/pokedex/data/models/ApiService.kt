@@ -1,21 +1,12 @@
 package com.example.pokedex.data.models
 
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.Call
 
 
 interface ApiService {
-
-    // The endpoint accepts either:
-
-    // Strings...
-    @GET("pokemon/{pokemonName}")
-    fun getItemByName(@Path("pokemonName") pokemonName : String) : Call<PokemonModel>
-
-    //...or Integers
-    @GET("pokemon/{pokemonNumber}")
-    fun getItemByNumber(@Path("pokemonNumber") pokemonNumber : Int) : Call<PokemonModel>
-
-
+    @GET("pokemon/{nameOrNumber}")
+    fun getItem(@Path("nameOrNumber") nameOrNumber : String) : Call<PokemonModel>
 }

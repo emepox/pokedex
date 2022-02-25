@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.pokedex.R
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import com.example.pokedex.databinding.ItemFavBinding
 
 class FavouritesRecyclerAdapter(private val dataSet: MutableList<PokemonModel>) :

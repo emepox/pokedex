@@ -2,16 +2,11 @@ package com.example.pokedex.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.viewModels
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pokedex.R
-import com.example.pokedex.data.models.PokemonModel
-import com.example.pokedex.databinding.FragmentFavouritesBinding
 import com.example.pokedex.databinding.FragmentSearchBinding
-import com.example.pokedex.mediators.PokemonViewModel
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
@@ -23,13 +18,18 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
 
         with(binding) {
             btnSearch.setOnClickListener {
-                val search = etSearch.text.toString()
-                println("SEARCH, $search")
-                findNavController().navigate(R.id.action_searchFragment_to_mainFragment,
-                    Bundle().apply {
-                        putString("search", search)
-                    }
-                )
+                if(etSearch.text.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please add a name or a number", Toast.LENGTH_SHORT).show()
+                } else if (etSearch.text.length > 20){
+                    Toast.makeText(requireContext(), "Please add a shorter name or number", Toast.LENGTH_SHORT).show()
+                } else {
+                    val search = etSearch.text.toString()
+                    findNavController().navigate(R.id.action_searchFragment_to_mainFragment,
+                        Bundle().apply {
+                            putString("search", search)
+                        }
+                    )
+                }
             }
         }
     }
