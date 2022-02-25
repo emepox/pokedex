@@ -1,13 +1,10 @@
-package com.example.pokedex.ui.main
+package com.example.pokedex.ui.fragments
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
-import androidx.activity.viewModels
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
-import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.example.pokedex.R
 import com.example.pokedex.data.models.PokemonModel
@@ -34,6 +31,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Call the observer
         pokemonObserver()
         setHasOptionsMenu(true)
+
+        // Searched Pokemon passed from search fragment
+        val searchedPokemon = arguments?.getString("search").toString()
+
+        println("YEEEEEE $searchedPokemon")
 
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {

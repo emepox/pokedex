@@ -6,21 +6,24 @@
     app:startDestination="@id/mainFragment">
     <fragment
         android:id="@+id/mainFragment"
-        android:name="com.example.pokedex.ui.main.MainFragment"
+        android:name="com.example.pokedex.ui.fragments.MainFragment"
         android:label="Pokédex"
         tools:layout="@layout/fragment_main" >
 
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.pokedex.ui.search.SearchFragment"
+        android:name="com.example.pokedex.ui.fragments.SearchFragment"
         android:label="Search"
         tools:layout="@layout/fragment_search" >
 
+        <action
+            android:id="@+id/action_searchFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
     </fragment>
     <fragment
         android:id="@+id/favouritesFragment"
-        android:name="com.example.pokedex.ui.favourites.FavouritesFragment"
+        android:name="com.example.pokedex.ui.fragments.FavouritesFragment"
         android:label="fragment_favourites"
         tools:layout="@layout/fragment_favourites" />
 </navigation>

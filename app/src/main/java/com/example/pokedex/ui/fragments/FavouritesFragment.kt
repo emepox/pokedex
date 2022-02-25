@@ -1,4 +1,4 @@
-package com.example.pokedex.ui.favourites
+package com.example.pokedex.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

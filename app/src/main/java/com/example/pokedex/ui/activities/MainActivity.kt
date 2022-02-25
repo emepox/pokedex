@@ -1,4 +1,4 @@
-package com.example.pokedex.ui.main
+package com.example.pokedex.ui.activities
 
 import android.os.Bundle
 import android.view.Menu
