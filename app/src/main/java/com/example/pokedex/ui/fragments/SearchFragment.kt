@@ -15,9 +15,6 @@ import com.example.pokedex.mediators.PokemonViewModel
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
-    private val pokemonViewModel by viewModels<PokemonViewModel>()
-    lateinit var searchedPokemon: PokemonModel
-
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -25,10 +22,9 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         binding = FragmentSearchBinding.bind(view)
 
         with(binding) {
-
-            val search = etSearch.text.toString()
-
             btnSearch.setOnClickListener {
+                val search = etSearch.text.toString()
+                println("SEARCH, $search")
                 findNavController().navigate(R.id.action_searchFragment_to_mainFragment,
                     Bundle().apply {
                         putString("search", search)
@@ -36,9 +32,5 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 )
             }
         }
-
-
     }
-
-
 }

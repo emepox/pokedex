@@ -26,16 +26,20 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
         // Binding
         binding = FragmentMainBinding.bind(view)
+
         // Initialise the call to the Pokemon API
-        pokemonViewModel.getPokemonById((1..898).random())
+        // Check if there are arguments passed from search
+        if(arguments == null) {
+            pokemonViewModel.getPokemonById((1..898).random())
+        } else {
+            arguments?.getString("search")?.let { pokemonViewModel.getPokemonByName(it) }
+            arguments = null
+        }
+
         // Call the observer
         pokemonObserver()
+        // Set menu
         setHasOptionsMenu(true)
-
-        // Searched Pokemon passed from search fragment
-        val searchedPokemon = arguments?.getString("search").toString()
-
-        println("YEEEEEE $searchedPokemon")
 
     }
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
