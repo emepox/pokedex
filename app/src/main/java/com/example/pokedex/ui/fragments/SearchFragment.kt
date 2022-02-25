@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.pokedex.R
@@ -24,12 +25,15 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
         with(binding) {
             btnSearch.setOnClickListener {
                 val search = etSearch.text.toString()
-                println("SEARCH, $search")
-                findNavController().navigate(R.id.action_searchFragment_to_mainFragment,
-                    Bundle().apply {
-                        putString("search", search)
-                    }
-                )
+                if(search.isEmpty()) {
+                    Toast.makeText(requireContext(), "Please add a name or a number", Toast.LENGTH_SHORT).show()
+                } else {
+                    findNavController().navigate(R.id.action_searchFragment_to_mainFragment,
+                        Bundle().apply {
+                            putString("search", search)
+                        }
+                    )
+                }
             }
         }
     }

@@ -10,12 +10,7 @@ interface ApiService {
     // The endpoint accepts either:
 
     // Strings...
-    @GET("pokemon/{pokemonName}")
-    fun getItemByName(@Path("pokemonName") pokemonName : String) : Call<PokemonModel>
-
-    //...or Integers
-    @GET("pokemon/{pokemonNumber}")
-    fun getItemByNumber(@Path("pokemonNumber") pokemonNumber : Int) : Call<PokemonModel>
-
+    @GET("pokemon/{nameOrNumber}")
+    fun getItem(@Path("nameOrNumber") nameOrNumber : String) : Call<PokemonModel>
 
 }

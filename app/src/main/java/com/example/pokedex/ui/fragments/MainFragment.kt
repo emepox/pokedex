@@ -30,9 +30,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Initialise the call to the Pokemon API
         // Check if there are arguments passed from search
         if(arguments == null) {
-            pokemonViewModel.getPokemonById((1..898).random())
+            pokemonViewModel.getPokemon((1..898).random().toString())
         } else {
-            arguments?.getString("search")?.let { pokemonViewModel.getPokemonByName(it) }
+            arguments?.getString("search")?.let { pokemonViewModel.getPokemon(it) }
             arguments = null
         }
 

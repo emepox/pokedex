@@ -13,23 +13,15 @@ class PokemonViewModel : ViewModel() {
     private val apiRepo = ApiRequestRepository()
     val response = MutableLiveData<PokemonModel?>()
 
-
     // HTTP CALLS
 
     // By name
-    fun getPokemonByName(name: String) {
+    fun getPokemon(nameOrNumber: String) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = apiRepo.getDataByName(name)
+            val result = apiRepo.getData(nameOrNumber)
             response.postValue(result)
         }
     }
 
-    // By ID
-    fun getPokemonById(id: Int) {
-        viewModelScope.launch(Dispatchers.IO) {
-            val result = apiRepo.getDataById(id)
-            response.postValue(result)
-        }
-    }
 }
 

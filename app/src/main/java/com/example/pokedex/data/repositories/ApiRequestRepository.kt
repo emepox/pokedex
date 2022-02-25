@@ -21,19 +21,8 @@ class ApiRequestRepository {
     // FUNCTIONS TO GET THE DATA
 
     // By name
-    fun getDataByName(name: String) : PokemonModel? {
-        val response = service.getItemByName(name).execute()
-        if(response.isSuccessful) {
-            return response.body()!!
-        } else {
-            Log.e("HTTP Error Tag", "${response.errorBody()}")
-            return null
-        }
-    }
-
-    // By ID
-    fun getDataById(id: Int) : PokemonModel? {
-        val response = service.getItemByNumber(id).execute()
+    fun getData(nameOrNumber: String) : PokemonModel? {
+        val response = service.getItem(nameOrNumber).execute()
         if(response.isSuccessful) {
             return response.body()!!
         } else {
