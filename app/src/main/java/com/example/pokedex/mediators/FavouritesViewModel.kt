@@ -40,10 +40,17 @@ class FavouritesViewModel(application: Application) : AndroidViewModel(applicati
     }
 
     // Check if Pokémon is favourite
-    fun isPokemonAFavourite(id: Int) {
+    fun isPokemonAFavouriteById(id: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            val result = favsRepo.existsChecker(id)
+            val result = favsRepo.existsCheckerById(id)
             println("HELLO $result")
+            checker.postValue(result)
+        }
+    }
+
+    fun isPokemonAFavouriteByName(name: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = favsRepo.existsCheckerByName(name)
             checker.postValue(result)
         }
     }

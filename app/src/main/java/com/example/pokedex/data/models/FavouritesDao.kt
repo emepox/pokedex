@@ -15,7 +15,10 @@ interface FavouritesDao {
     fun getOneById(id: Int) : PokemonModel
 
     @Query("SELECT EXISTS (SELECT * FROM PokemonModel WHERE id = :id)")
-    fun exists(id: Int): Boolean
+    fun existsById(id: Int): Boolean
+
+    @Query("SELECT EXISTS (SELECT * FROM PokemonModel WHERE name = :name)")
+    fun existsByName(name: String): Boolean
 
     @Insert
     fun insertFav(pokemon: PokemonModel)

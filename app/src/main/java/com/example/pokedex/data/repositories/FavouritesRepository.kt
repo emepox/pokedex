@@ -18,8 +18,12 @@ class FavouritesRepository(val context: Context) {
         return DatabaseSingleton.getInstance(context).favouritesDao().getOneById(id)
     }
 
-    fun existsChecker(id: Int): Boolean {
-        return DatabaseSingleton.getInstance(context).favouritesDao().exists(id)
+    fun existsCheckerById(id: Int): Boolean {
+        return DatabaseSingleton.getInstance(context).favouritesDao().existsById(id)
+    }
+
+    fun existsCheckerByName(name: String): Boolean {
+        return DatabaseSingleton.getInstance(context).favouritesDao().existsByName(name)
     }
 
     fun deleteItem(pokemon: PokemonModel) {
