@@ -1,5 +1,7 @@
 package com.example.pokedex.data.models
 
+import androidx.room.ColumnInfo
+
 data class OfficialArtworkModel(
-    val front_default: String
+    @ColumnInfo(name = "image") val front_default: String
 )
