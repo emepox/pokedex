@@ -1,6 +1,6 @@
-package com.example.pokedex.data.models
+package com.example.pokedex.data.models.apiEntityModels
 
-import androidx.room.ColumnInfo
+import com.example.pokedex.data.models.apiEntityModels.OfficialArtworkModel
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 

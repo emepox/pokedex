@@ -2,7 +2,7 @@ package com.example.pokedex.data.repositories
 
 import android.content.Context
 import com.example.pokedex.data.databases.DatabaseSingleton
-import com.example.pokedex.data.models.PokemonModel
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 
 class FavouritesRepository(val context: Context) {
 

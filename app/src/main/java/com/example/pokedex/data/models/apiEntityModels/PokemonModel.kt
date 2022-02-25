@@ -1,8 +1,9 @@
-package com.example.pokedex.data.models
+package com.example.pokedex.data.models.apiEntityModels
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.example.pokedex.data.models.apiEntityModels.SpritesModel
 
 @Entity
 data class PokemonModel(

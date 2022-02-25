@@ -1,7 +1,9 @@
 package com.example.pokedex.data.models
 
 import androidx.room.TypeConverter
-import com.google.gson.Gson
+import com.example.pokedex.data.models.apiEntityModels.ArtWorkModel
+import com.example.pokedex.data.models.apiEntityModels.OfficialArtworkModel
+import com.example.pokedex.data.models.apiEntityModels.SpritesModel
 
 class ImageConverter {
 

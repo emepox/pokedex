@@ -4,7 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.example.pokedex.data.models.PokemonModel
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import com.example.pokedex.data.repositories.FavouritesRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
 import com.example.pokedex.data.models.FavouritesDao
 import com.example.pokedex.data.models.ImageConverter
-import com.example.pokedex.data.models.PokemonModel
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 
 @Database(entities = [PokemonModel::class], version = 1)
 @TypeConverters(ImageConverter::class)

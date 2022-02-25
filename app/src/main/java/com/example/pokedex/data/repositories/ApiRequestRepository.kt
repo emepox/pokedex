@@ -2,7 +2,7 @@ package com.example.pokedex.data.repositories
 
 import android.util.Log
 import com.example.pokedex.data.models.ApiService
-import com.example.pokedex.data.models.PokemonModel
+import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
