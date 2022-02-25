@@ -4,40 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.search.SearchFragment">
+    tools:context=".ui.fragments.SearchFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/tv_search_title"
-        android:layout_width="match_parent"
+        android:id="@+id/tv_search"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="SEARCH FRAGMENT" />
+        android:text="Search by Name or by Number"
+        android:padding="20dp"
+        android:textSize="25sp"
+        />
 
     <EditText
         android:id="@+id/et_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_search_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_search"
         app:layout_constraintBottom_toTopOf="@+id/btn_search"
+        app:layout_constraintEnd_toEndOf="parent"
         android:hint="Search..."
-        android:textSize="30sp"
-        android:padding="30dp"
+        android:layout_margin="30dp"
         />
+
 
     <Button
         android:id="@+id/btn_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="20dp"
         android:text="SUBMIT"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_search"
+        app:layout_constraintStart_toStartOf="parent"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/et_search" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

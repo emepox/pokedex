@@ -17,9 +17,5 @@ interface ApiService {
     @GET("pokemon/{pokemonNumber}")
     fun getItemByNumber(@Path("pokemonNumber") pokemonNumber : Int) : Call<PokemonModel>
 
-    // Instead of having two requests, will this work? We will see
-    @GET("pokemon/{pokemonName}{pokemonNumber}")
-    fun getItem(@Path("pokemonName") pokemonName : String, @Path("pokemonNumber") pokemonNumber: Int) : Call<PokemonModel>
-
 
 }
