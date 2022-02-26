@@ -1,6 +1,7 @@
 package com.example.pokedex.ui.fragments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
 import android.widget.Toast
@@ -27,17 +28,24 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Binding
         binding = FragmentMainBinding.bind(view)
 
-        // Initialise the call to the Pokemon API
+        // INITIALISE THE CALL to the Pokemon API
         // Check if there are arguments passed from search
         if(arguments == null) {
-            pokemonViewModel.getPokemon((1..898).random().toString())
+            val random = (1..898).random()
+            pokemonViewModel.getPokemon(random.toString())
+            favsViewModel.isPokemonAFavouriteById(random)
         } else {
-            arguments?.getString("search")?.let { pokemonViewModel.getPokemon(it) }
+            arguments?.getString("search")?.let {
+                pokemonViewModel.getPokemon(it)
+                favsViewModel.isPokemonAFavouriteByName(it)
+            }
             arguments = null
+
         }
 
-        // Call the observer
+        // Call the observers
         pokemonObserver()
+        favsCheckerObserver()
         // Set menu
         setHasOptionsMenu(true)
 
@@ -52,7 +60,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         val id = item.getItemId()
         if (id == R.id.like_icon) {
             favsViewModel.addPokemonToFavourites(currentPokemon)
-            Toast.makeText(requireContext(), "CLICKED", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), "Added to favourites", Toast.LENGTH_SHORT).show()
             return true
         }
         return super.onOptionsItemSelected(item)
@@ -76,6 +84,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                     .load(pokemon.sprites.other.officialArtwork.front_default)
                     .dontAnimate()
                     .into(ivMainPokemonImage)
+            }
+        }
+    }
+
+    private fun favsCheckerObserver() {
+        favsViewModel.checker.observe(viewLifecycleOwner) {
+            if(it) {
+                menu?.findItem(R.id.like_icon)?.setIcon(R.drawable.ic_heart_full)
             }
         }
     }

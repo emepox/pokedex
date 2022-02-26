@@ -13,6 +13,7 @@ class FavouritesViewModel(application: Application) : AndroidViewModel(applicati
 
     private val favsRepo = FavouritesRepository(application)
     val response = MutableLiveData<MutableList<PokemonModel>>()
+    val checker = MutableLiveData<Boolean>()
 
     // ACTIONS
 
@@ -35,6 +36,22 @@ class FavouritesViewModel(application: Application) : AndroidViewModel(applicati
     fun deleteAFavouritePokemon(pokemon: PokemonModel) {
         viewModelScope.launch(Dispatchers.IO) {
             favsRepo.deleteItem(pokemon)
+        }
+    }
+
+    // Check if Pokémon is favourite
+    fun isPokemonAFavouriteById(id: Int) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = favsRepo.existsCheckerById(id)
+            println("HELLO $result")
+            checker.postValue(result)
+        }
+    }
+
+    fun isPokemonAFavouriteByName(name: String) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = favsRepo.existsCheckerByName(name)
+            checker.postValue(result)
         }
     }
 
