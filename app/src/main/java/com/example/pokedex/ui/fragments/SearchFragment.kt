@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.pokedex.R
 import com.example.pokedex.databinding.FragmentSearchBinding
+import java.util.*
 
 class SearchFragment : Fragment(R.layout.fragment_search) {
     private lateinit var binding: FragmentSearchBinding
@@ -23,7 +24,7 @@ class SearchFragment : Fragment(R.layout.fragment_search) {
                 } else if (etSearch.text.length > 20){
                     Toast.makeText(requireContext(), "Please add a shorter name or number", Toast.LENGTH_SHORT).show()
                 } else {
-                    val search = etSearch.text.toString()
+                    val search = etSearch.text.toString().lowercase()
                     findNavController().navigate(R.id.action_searchFragment_to_mainFragment,
                         Bundle().apply {
                             putString("search", search)

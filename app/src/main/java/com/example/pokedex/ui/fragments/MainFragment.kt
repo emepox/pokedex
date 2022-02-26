@@ -13,6 +13,7 @@ import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import com.example.pokedex.databinding.FragmentMainBinding
 import com.example.pokedex.mediators.FavouritesViewModel
 import com.example.pokedex.mediators.PokemonViewModel
+import java.math.BigDecimal
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -74,12 +75,16 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 findNavController().navigate(R.id.errorFragment)
                 return@observe
             }
+
             currentPokemon = pokemon
+            val heightM = pokemon.height.toBigDecimal().divide(10.toBigDecimal())
+            val weightM = pokemon.weight.toBigDecimal().divide(10.toBigDecimal())
+
             with(binding) {
                 tvMainPokemonName.text = (pokemon.name).uppercase()
                 tvMainPokemonNumber.text = "Number: ${pokemon.id.toString()}"
-                tvMainPokemonHeight.text = "Height: ${pokemon.height}"
-                tvMainPokemonWeight.text = "Weight: ${pokemon.weight}"
+                tvMainPokemonHeight.text = "Height: ${heightM}m"
+                tvMainPokemonWeight.text = "Weight: ${weightM}kg"
                 // Image
                 Glide.with(requireContext())
                     .load(pokemon.sprites.other.officialArtwork.front_default)
