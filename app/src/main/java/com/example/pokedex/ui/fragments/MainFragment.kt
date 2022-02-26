@@ -11,9 +11,7 @@ import com.bumptech.glide.Glide
 import com.example.pokedex.R
 import com.example.pokedex.data.models.apiEntityModels.PokemonModel
 import com.example.pokedex.databinding.FragmentMainBinding
-import com.example.pokedex.mediators.FavouritesViewModel
 import com.example.pokedex.mediators.PokemonViewModel
-import java.math.BigDecimal
 
 class MainFragment : Fragment(R.layout.fragment_main) {
 
@@ -21,6 +19,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     lateinit var currentPokemon: PokemonModel
     private val pokemonViewModel by viewModels<PokemonViewModel>()
     private var menu: Menu? = null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,9 +30,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // INITIALISE THE CALL to the Pokemon API
         // Check if there are arguments passed from search
         if(arguments == null) {
-            val random = (1..898).random()
-            pokemonViewModel.getPokemon(random.toString())
-            pokemonViewModel.isPokemonAFavouriteById(random)
+            getRandomPokemon()
         } else {
             arguments?.getString("search")?.let {
                 pokemonViewModel.getPokemon(it)
@@ -48,7 +45,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Set menu
         setHasOptionsMenu(true)
 
-
+        // Listeners
+        with(binding){
+            btnRandom.setOnClickListener {getRandomPokemon()}
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -110,6 +110,12 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 menu?.findItem(R.id.like_icon)?.setIcon(R.drawable.ic_heart_full)
             }
         }
+    }
+
+    fun getRandomPokemon() {
+        val random = (1..898).random()
+        pokemonViewModel.getPokemon(random.toString())
+        pokemonViewModel.isPokemonAFavouriteById(random)
     }
 
 

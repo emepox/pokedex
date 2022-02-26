@@ -16,6 +16,8 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.pokedex.R
 import com.example.pokedex.databinding.ActivityMainBinding
 import com.example.pokedex.mediators.FavouritesViewModel
+import com.example.pokedex.mediators.PokemonViewModel
+import com.example.pokedex.ui.fragments.MainFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 
