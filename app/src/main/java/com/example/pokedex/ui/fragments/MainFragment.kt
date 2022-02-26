@@ -40,10 +40,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
                 pokemonViewModel.isPokemonAFavouriteByName(it)
             }
             arguments = null
-
         }
-
-
 
         // Call the observers
         pokemonObserver()
@@ -51,7 +48,9 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Set menu
         setHasOptionsMenu(true)
 
+
     }
+
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         this.menu = menu
         inflater.inflate(R.menu.fav_menu, menu)
@@ -60,11 +59,22 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         // Handle action bar item clicks here.
         val id = item.getItemId()
+
         if (id == R.id.like_icon) {
+            Log.e("Menu", "$id")
             pokemonViewModel.addPokemonToFavourites(currentPokemon)
             Toast.makeText(requireContext(), "Added to favourites", Toast.LENGTH_SHORT).show()
             return true
         }
+        /*
+        if (id == R.id.mainFragment) {
+            Log.e("Menu", "$id")
+            Toast.makeText(requireContext(), "AAAA", Toast.LENGTH_SHORT).show()
+            return true
+        }
+
+         */
+
         return super.onOptionsItemSelected(item)
     }
 
@@ -82,7 +92,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
             with(binding) {
                 tvMainPokemonName.text = (pokemon.name).uppercase()
-                tvMainPokemonNumber.text = "Number: ${pokemon.id.toString()}"
+                tvMainPokemonNumber.text = "#${pokemon.id}"
                 tvMainPokemonHeight.text = "Height: ${heightM}m"
                 tvMainPokemonWeight.text = "Weight: ${weightM}kg"
                 // Image

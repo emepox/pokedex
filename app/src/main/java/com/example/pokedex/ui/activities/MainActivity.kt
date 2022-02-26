@@ -33,49 +33,7 @@ class MainActivity : AppCompatActivity() {
         val navController = navHostFragment.navController
 
         binding.navView.setupWithNavController(navController)
+
     }
-
-    /*
-        override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.like_icon) {
-            currentComic?.let {
-                CoroutineScope(Dispatchers.IO).launch {
-                    if (favoritesRepository.isComicFavorite(it)) {
-                        favoritesRepository.removeComicAsFavorite(it)
-                    } else {
-                        favoritesRepository.addComicAsFavorite(it)
-                    }
-
-                    withContext(Dispatchers.Main) {
-                        setLikeIcon(it)
-                    }
-                }
-            }
-        }
-
-        return true
-    }
-
-
-   ------
-
-
-       private fun setLikeIcon(comic: ComicResponse) {
-        CoroutineScope(Dispatchers.IO).launch {
-            val isFavorite = favoritesRepository.isComicFavorite(comic)
-
-            withContext(Dispatchers.Main) {
-                menu?.findItem(R.id.like_icon)?.setIcon(
-                    if (isFavorite)
-                        R.drawable.ic_favorite
-                    else
-                        R.drawable.ic_favorite_border
-                )
-            }
-        }
-    }
-
-
-     */
 
 }
