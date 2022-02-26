@@ -19,7 +19,6 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     lateinit var binding: FragmentMainBinding
     lateinit var currentPokemon: PokemonModel
     private val pokemonViewModel by viewModels<PokemonViewModel>()
-    private val favsViewModel by viewModels<FavouritesViewModel>()
     private var menu: Menu? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -33,15 +32,17 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         if(arguments == null) {
             val random = (1..898).random()
             pokemonViewModel.getPokemon(random.toString())
-            favsViewModel.isPokemonAFavouriteById(random)
+            pokemonViewModel.isPokemonAFavouriteById(random)
         } else {
             arguments?.getString("search")?.let {
                 pokemonViewModel.getPokemon(it)
-                favsViewModel.isPokemonAFavouriteByName(it)
+                pokemonViewModel.isPokemonAFavouriteByName(it)
             }
             arguments = null
 
         }
+
+
 
         // Call the observers
         pokemonObserver()
@@ -59,7 +60,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         // Handle action bar item clicks here.
         val id = item.getItemId()
         if (id == R.id.like_icon) {
-            favsViewModel.addPokemonToFavourites(currentPokemon)
+            pokemonViewModel.addPokemonToFavourites(currentPokemon)
             Toast.makeText(requireContext(), "Added to favourites", Toast.LENGTH_SHORT).show()
             return true
         }
@@ -89,7 +90,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun favsCheckerObserver() {
-        favsViewModel.checker.observe(viewLifecycleOwner) {
+        pokemonViewModel.checker.observe(viewLifecycleOwner) {
             if(it) {
                 menu?.findItem(R.id.like_icon)?.setIcon(R.drawable.ic_heart_full)
             }
